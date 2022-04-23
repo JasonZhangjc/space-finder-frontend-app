@@ -7,16 +7,20 @@ interface SpaceComponentProps {
     spaceId: string,
     name: string,
     location: string,
+    // '?' means an optional property
     photoUrl?: string,
     reserveSpace: (spaceId: string) => void
 }
 
+// this component only has props, no states
 export class SpaceComponent extends Component<SpaceComponentProps> {
 
     private renderImage(){
         if (this.props.photoUrl) {
+            // if the photoUrl is provided, display the img
             return <img src={this.props.photoUrl} alt=''/>
         } else {
+            // otherwise, display a generic img
             return <img src={genericImage} alt=''/>
         }
     }

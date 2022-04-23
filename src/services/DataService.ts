@@ -8,17 +8,17 @@ export class DataService {
         const result: Space[] = []
         result.push({
             location: 'Paris',
-            name: 'Best Location',
+            name: 'Fashion City',
             spaceId: '123'
         });
         result.push({
-            location: 'Paris',
-            name: 'Best Location',
+            location: 'Nante',
+            name: 'Decent Town',
             spaceId: '124'
         });
         result.push({
-            location: 'Paris',
-            name: 'Best Location',
+            location: 'Leon',
+            name: 'Movie Place',
             spaceId: '125'
         });
         return result;

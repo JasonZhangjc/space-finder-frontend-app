@@ -17,6 +17,7 @@ export class Profile extends React.Component<ProfileProps, ProfileState> {
         userAttributes: []
     }
 
+    // componentDidMount is from React
     async componentDidMount(){
         if (this.props.user) {
             const userAtrs = await this.props.authService.getUserAttributes(this.props.user);
@@ -28,6 +29,7 @@ export class Profile extends React.Component<ProfileProps, ProfileState> {
 
 
     private renderUserAttributes(){
+        // define rows and assign value to it
         const rows = []
         for (const userAttribute of this.state.userAttributes) {
             rows.push(<tr key={userAttribute.Name}>
@@ -36,6 +38,7 @@ export class Profile extends React.Component<ProfileProps, ProfileState> {
             </tr>)
             
         }
+        // return rows in a table
         return <table>
             <tbody>
                 {rows}

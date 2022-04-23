@@ -3,6 +3,8 @@ import { User } from "../model/Model";
 import { Link } from 'react-router-dom'
 
 
+// The entire navbar.tsx is for routing!
+// Routing: which webpage to go
 
 export class Navbar extends React.Component<{
     user: User | undefined
@@ -10,6 +12,13 @@ export class Navbar extends React.Component<{
 
     render() {
         let loginLogOut: any
+
+        // if user is consistent with authService,
+        // go to logout page and print userName
+        // otherwise go to login page
+        // after login, the userName should be displayed on the webpage
+        // however, if we reload the page, everything starts from the beginning
+        // which means no userName and we need to redo the login
         if (this.props.user) {
             loginLogOut = <Link to='/logout' style={{ float: 'right' }} >{this.props.user.userName}</Link>
         } else {

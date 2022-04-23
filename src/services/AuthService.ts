@@ -1,9 +1,11 @@
 import { User, UserAttribute } from '../model/Model'
 
+// Define class in ./services
 
 export class AuthService {
 
     public async login(userName: string, password: string):Promise<User | undefined> {
+        // Promise is enforcing the return type is User or undefined
         if (userName === 'user' && password === '1234') {
             return {
                 userName: userName,
@@ -14,6 +16,7 @@ export class AuthService {
         }
     }
 
+    // The following information will be shown on the Profile page
     public async getUserAttributes(user: User):Promise<UserAttribute[]>{
         const result: UserAttribute[] = [];
         result.push({

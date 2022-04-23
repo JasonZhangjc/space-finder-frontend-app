@@ -23,7 +23,9 @@ export class Spaces extends Component<SpacesProps, SpacesState> {
             showModal: false,
             modalContent: ''
         }
+        // register the 'reserveSpace' in the constructor
         this.reserveSpace = this.reserveSpace.bind(this);
+        // register the 'closeModal' in the constructor
         this.closeModal = this.closeModal.bind(this)
 
     }
@@ -62,6 +64,8 @@ export class Spaces extends Component<SpacesProps, SpacesState> {
                 />
             )
         }
+        // Must return rows in the end
+        // Otherwise there would be errors!
         return rows;
     }
 

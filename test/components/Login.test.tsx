@@ -14,18 +14,28 @@ const someUser: User = {
 describe('Login component test suite', () => {
 
     let container: HTMLDivElement;
+
+    // mock for authService
     const authServiceMock = {
+        // jest.fn() creates a mock function
         login: jest.fn()
     }
+
+    // mock for setUser
     const setUserMock = jest.fn();
 
     const historyMock = history;
     history.push = jest.fn();
 
+    // this is a hook
     beforeEach(() => {
+        // container is a HTMLDivElement
+        // container holds the component
         container = document.createElement("div");
         document.body.appendChild(container);
         ReactDOM.render(
+            // call authService is not good in testing
+            // Use mock to mock the authService
             <Login authService={authServiceMock as any} setUser={setUserMock}/>,
             container
         )
@@ -39,6 +49,8 @@ describe('Login component test suite', () => {
 
     test('Renders correctly initial document', () => {
         const title = document.querySelector('h2');
+        // expect is our expectation
+        // what the output is supposed to be
         expect(title!.textContent).toBe('Please login');
 
         const inputs = document.querySelectorAll('input');
@@ -51,6 +63,7 @@ describe('Login component test suite', () => {
         expect(label).not.toBeInTheDocument();
     })
 
+    // create a new test
     test('Passes credentials correclty', ()=>{
         const inputs = document.querySelectorAll('input');
         const loginInput = inputs[0];
@@ -67,6 +80,7 @@ describe('Login component test suite', () => {
         )
     })
 
+    // Mock services
     test('Correclty handles login success', async ()=>{
         authServiceMock.login.mockResolvedValueOnce(someUser);
         const inputs = document.querySelectorAll('input');
@@ -78,6 +92,8 @@ describe('Login component test suite', () => {
         fireEvent.change(passwordInput, {target:{value: 'somePass'}});
         fireEvent.click(loginButton);
 
+        // in fact, the code 'toBeCalledWith' is very
+        // easy to understand
         const statusLabel = await waitFor(()=> container.querySelector('label'));
         expect(statusLabel).toBeInTheDocument();
         expect(statusLabel).toHaveTextContent('Login successful');

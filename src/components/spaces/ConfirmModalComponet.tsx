@@ -10,6 +10,8 @@ interface ConfromModalComponentProps {
 export class ConfromModalComponent extends Component<ConfromModalComponentProps> {
 
     render() {
+        // Notice the '!' in if () ...
+        // Think about the logic please!
         if (!this.props.show) {
             return null
         } else {

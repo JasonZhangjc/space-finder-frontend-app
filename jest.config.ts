@@ -21,6 +21,8 @@ const config: Config.InitialOptions = {
     collectCoverage: true,
     collectCoverageFrom: [
         'src/**/*.{ts,tsx}',
+        // excluding all code in services from the coverage report
+        // '!' means 'not'
         '!src/services/**',
         '!src/react-app-env.d.ts'
     ]
