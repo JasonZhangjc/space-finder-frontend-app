@@ -1,6 +1,13 @@
 import { Login } from '../../src/components/Login'
 import { create } from 'react-test-renderer'
 
+// create a snapshot for a component
+// and check it for changes or not
+// i.e. compare program to the component
+
+
+// npm test -- -u
+// updates the snapshot
 
 describe('Login component snapshot testing', ()=>{
 

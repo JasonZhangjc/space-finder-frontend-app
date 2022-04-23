@@ -14,6 +14,8 @@ const config: Config.InitialOptions = {
     testRegex: "(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$",
     moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"],
     testEnvironment: "jsdom",
+    // when the program meets .jpg or .css
+    // do nothing and go to the trivial file mockFile
     moduleNameMapper: {
         "\\.(jpg)$":"<rootDir>/test/mockFile.ts",
         "\\.(css)$":"<rootDir>/test/mockFile.ts"

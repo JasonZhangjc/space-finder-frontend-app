@@ -12,17 +12,17 @@ const someSpaces: Space[] = [
     spaceId: "1234"
   },
   {
-    location: "Paris",
+    location: "Nante",
     name: "Park place",
     spaceId: "1235"
   },
   {
-    location: "Paris",
+    location: "Leon",
     name: "Park place",
     spaceId: "1236"
   },
   {
-    location: "Paris",
+    location: "Nice",
     name: "Park place",
     spaceId: "1237"
   }

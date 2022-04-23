@@ -9,11 +9,17 @@ describe('Space component test suite', ()=>{
     let container: HTMLDivElement;
     const reserveSpaceMock = jest.fn();
 
+    // the cleanUpTests is used many times 
+    // or in multiple test suites
+    // so we define it as a function
     function cleanUpTests(){
         document.body.removeChild(container);
         container.remove();
         jest.clearAllMocks();
     }
+
+    // similar to cleanUpTests
+    // FunctionComponentElement is from React
     function setUpTests(element: React.FunctionComponentElement<any>){
         container = document.createElement('div');
         document.body.appendChild(container)
@@ -67,10 +73,12 @@ describe('Space component test suite', ()=>{
                 name={'someName'}
                 reserveSpace={reserveSpaceMock}
                 spaceId={'123'}
+                // no photoUrl here
             />)
         })
 
         test('show image correclty', ()=>{
+            // searching for an image
             const image = container.querySelector('img');
             expect(image!).toBeInTheDocument();
             expect(image!.src).toBeFalsy();

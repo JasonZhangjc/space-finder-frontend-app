@@ -13,6 +13,7 @@ const someUser: User = {
 
 describe('Login component test suite', () => {
 
+    // HTMLDivElement is something in the <div></div>
     let container: HTMLDivElement;
 
     // mock for authService
